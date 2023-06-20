@@ -1,13 +1,17 @@
+#########################################
+#### CMake File for Sci-Arma Library ####
+#########################################
 
 cmake_minimum_required(VERSION 3.22)
 project(sci_arma)
 
 set(CMAKE_CXX_STANDARD 14)
 
+# Destions Dirs
 set(EXECUTABLE_OUTPUT_PATH ./build)
 set(LIBRARY_OUTPUT_PATH ./build)
 
-# Find Armadillo
+# Find and Including Armadillo
 find_package(Armadillo REQUIRED)
 include_directories(./include ${ARMADILLO_INCLUDE_DIRS})
 link_directories(${ARMADILLO_LIBRARIES})
