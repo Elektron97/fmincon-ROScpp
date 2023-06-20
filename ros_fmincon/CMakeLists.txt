@@ -25,6 +25,15 @@ add_library(${PROJECT_NAME} src/Rosenbrock.cpp src/Powell.cpp src/Powell.cpp src
         src/BFGS.cpp src/fmincon.cpp)
 target_link_libraries(${PROJECT_NAME} ${ARMADILLO_LIBRARIES} ${catkin_LIBRARIES})
 
+## Compile examples
+# with gradient
+add_executable(example_with_gradient src/examples/example_with_gra.cpp)
+target_link_libraries(example_with_gradient ${catkin_LIBRARIES} ${PROJECT_NAME} ${ARMADILLO_LIBRARIES})
+
+# without gradient
+add_executable(example_without_gradient src/examples/example_without_gra.cpp)
+target_link_libraries(example_without_gradient ${catkin_LIBRARIES} ${PROJECT_NAME} ${ARMADILLO_LIBRARIES})
+
 #### Export Library ####
 install(
   TARGETS ${PROJECT_NAME}
